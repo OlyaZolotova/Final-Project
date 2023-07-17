@@ -1,0 +1,22 @@
+.category__container {
+  max-width: 1250px;
+  padding: 200px 15px 0;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+.category__wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+.category__title {
+  font-size: 34px;
+  line-height: 36px;
+  font-family: "Italiana", serif;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+
