@@ -40,10 +40,11 @@ export const Drinks = () => {
           <div className="category__wrap">
             {coffeecategory.map((category: any) => (
               <Link
-                to={Routes.DrinksFromCategory.replace(
-                  ":slug",
-                  category.slug
-                )}
+                style={{
+                  textDecoration: "none",
+                  color: "black"
+                }}
+                to={Routes.DrinksFromCategory.replace(":slug", category.slug)}
               >
                 <DrinkCategory
                   key={category.id}

@@ -5,8 +5,8 @@ import "./style.scss";
 import { Link } from "react-router-dom";
 import { Routes } from "../../constants/Routes";
 
-const DrinksFromCategory = () => {
-  const [drinks, setDrinks] = useState([
+const FoodFromCategory = () => {
+  const [food, setFood] = useState([
     {
       id: 0,
       slug: "",
@@ -20,38 +20,38 @@ const DrinksFromCategory = () => {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/api/v1/drinks-from-category/${params.slug}/`)
+      .get(`http://127.0.0.1:8000/api/v1/food-from-category/${params.slug}/`)
       .then((response) => {
-        setDrinks(response.data);
+        console.log(response.data);
+        setFood(response.data);
       });
   }, [params.slug]);
 
   return (
     <div className="drinks__container">
       <div className="drinks__wrap">
-        {drinks.map((drink) => (
+        {food.map((item) => (
           <Link
-            to={Routes.Drink.replace(":id", drink.id.toString())}
-            key={drink.id}
+            to={Routes.FoodProduct.replace(":id", item.id.toString())}
+            key={item.id}
           >
             <div className="drinks">
               <div className="drinks__image">
                 <img
                   className="drinks__image-png"
-                  src={drink.image}
+                  src={item.image}
                   alt="foto"
                 />
               </div>
               <div className="drinks__content">
-                <h4 className="drinks__name">{drink.name}</h4>
+                <h4 className="drinks__name">{item.name}</h4>
               </div>
             </div>
           </Link>
         ))}
-        ;
       </div>
     </div>
   );
 };
 
-export default DrinksFromCategory;
+export default FoodFromCategory;

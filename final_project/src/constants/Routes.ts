@@ -6,4 +6,7 @@ export enum Routes {
   Post = "/post/:id",
   Menu = "/categories",
   DrinksFromCategory = "/drinks/:slug",
+  Drink = "/drink/:id",
+  FoodFromCategory = "/food/:slug",
+  FoodProduct = "/foodproduct/:id",
 }

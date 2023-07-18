@@ -7,8 +7,7 @@ interface ICoffeeCategory {
 
 export const DrinkCategory = ({ name, image }: ICoffeeCategory) => {
   return (
-    <div>
-      <a className="category">
+      <div className="category">
         <div className="category__image">
           <img
             className="category__image-png"
@@ -16,10 +15,9 @@ export const DrinkCategory = ({ name, image }: ICoffeeCategory) => {
             alt="foto"
           />
         </div>
-        <div className="category__content">
+        <a className="category__content">
           <h4 className="category__name">{name}</h4>
-        </div>
-      </a>
-    </div>
+        </a>
+      </div>
   );
 };

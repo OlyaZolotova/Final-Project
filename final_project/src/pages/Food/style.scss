@@ -1,0 +1,72 @@
+.drinks {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+  &__container {
+    max-width: 1250px;
+    padding: 200px 15px 0;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    &-food {
+      padding: 0 15px;
+    }
+  }
+  &__wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+  &__title {
+    font-size: 34px;
+    line-height: 36px;
+    font-family: "Italiana", serif;
+    font-weight: 400;
+    margin-bottom: 50px;
+  }
+  &__image {
+    border: 5px solid rgb(175, 142, 77);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    &-png {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  // &__content {
+  //   &::before {
+  //     content: "";
+  //     width: 100%;
+  //     border-bottom: 3px solid transparent;
+  //     display: inline-block;
+  //     position: absolute;
+  //     left: 0;
+  //     top: 100%;
+  //     transform: translateY(-100%);
+  //   }
+  //   &:hover::before {
+  //     border-bottom: 3px solid #af8e4d;
+  //   }
+  //   &:active::before {
+  //     border-bottom: 3px solid #8c713c;
+  //   }
+  //   &:active {
+  //     color: #af8e4d;
+  //   }
+  // }
+  &__name {
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+}

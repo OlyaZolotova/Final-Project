@@ -5,6 +5,8 @@ import { useAppDispatch } from "../../../../hooks/useAppDispatch";
 import { RootState } from "../../../../store";
 import { foodcategories } from "../../../../store/actions/foodcategory";
 import { FoodCategory } from "./FoodCategory";
+import { Link } from "react-router-dom";
+import { Routes } from "../../../../constants/Routes";
 import "../style.scss";
 
 export const Food = () => {
@@ -37,11 +39,18 @@ export const Food = () => {
           <h3 className="category__title">Food</h3>
           <div className="category__wrap">
             {foodcategory.map((category: any) => (
+                <Link
+                to={Routes.FoodFromCategory.replace(
+                  ":slug",
+                  category.slug
+                )}
+              >
               <FoodCategory
                 key={category.id}
                 name={category.name}
                 image={category.image}
               />
+              </Link>
             ))}
           </div>
         </div>

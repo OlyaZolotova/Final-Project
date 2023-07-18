@@ -12,6 +12,9 @@ import Verify from "./pages/Verify";
 import Login from "./pages/Login";
 import Menu from "./pages/Menu/index";
 import DrinksFromCategory from "./pages/DrinksFromCategory";
+import Drink from "./pages/Drink";
+import FoodFromCategory from "./pages/FoodFromCategory";
+import FoodProduct from "./pages/Food";
 
 // sass installation: npm install node-sass
 
@@ -47,6 +50,18 @@ const router = createBrowserRouter([
       {
         path: Routes.DrinksFromCategory,
         element: <DrinksFromCategory />,
+      },
+      {
+        path: Routes.Drink,
+        element: <Drink />,
+      },
+      {
+        path: Routes.FoodFromCategory,
+        element: <FoodFromCategory />,
+      },
+      {
+        path: Routes.FoodProduct,
+        element: <FoodProduct />,
       },
     ],
   },
