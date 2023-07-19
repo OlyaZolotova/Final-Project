@@ -1,5 +1,6 @@
-.drinks {
-  display: flex;
+.food {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
   align-items: center;
   column-gap: 30px;
   &__container {

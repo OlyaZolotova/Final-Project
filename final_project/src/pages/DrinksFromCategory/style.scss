@@ -1,5 +1,17 @@
+a {
+   text-decoration: none;
+   color: black;
+    &:hover {
+      color: #af8e4d;
+    }
+
+    &:active {
+      color: #8c713c;
+    }
+}
 .drinks {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
   align-items: center;
   column-gap: 30px;
   &__container {

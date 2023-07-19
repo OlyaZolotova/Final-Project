@@ -17,9 +17,9 @@ export const Video = () => {
         </h1>
       </div>
       <div className="video__content video__content-end">
-        <a className="video__btn" href="#features">
+        <button className="video__btn" href="#features">
           find out more
-        </a>
+        </button>
       </div>
     </div>
   );

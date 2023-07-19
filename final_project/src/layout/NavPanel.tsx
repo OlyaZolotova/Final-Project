@@ -2,7 +2,7 @@ import { Box, Button, Drawer } from "@mui/material";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useDispatch, useSelector } from "react-redux";
-import { restoreUser } from "../store/actions/user";
+// import { restoreUser } from "../store/actions/user";
 import { Link } from "react-router-dom";
 import { Routes } from "../constants/Routes";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -37,7 +37,7 @@ export const NavPanel = () => {
               <Button
                 variant="contained"
                 type="submit"
-                onClick={() => dispatch(restoreUser())}
+                // onClick={() => dispatch(restoreUser())}
                 sx={{
                   width: "100%",
                   borderRadius: 0,

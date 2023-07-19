@@ -25,19 +25,19 @@ const FoodProduct = () => {
   return (
     <>
       {foodproduct.map((product) => (
-        <div className="drinks__container">
-          <div className="drinks__wrap">
-            <div className="drinks">
-              <div className="drinks__image">
+        <div className="product__container">
+          <div className="product__wrap">
+            <div className="product">
+              <div className="product__image">
                 <img
-                  className="drinks__image-png"
+                  className="product__image-png"
                   src={product.image}
                   alt="foto"
                 />
               </div>
-              <a className="drinks__content">
-                <h4 className="drinks__name">{product.name}</h4>
-              </a>
+              <div className="product__content">
+                <h4 className="product__name">{product.name}</h4>
+              </div>
             </div>
           </div>
         </div>
