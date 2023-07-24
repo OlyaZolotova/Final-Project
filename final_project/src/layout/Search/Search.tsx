@@ -33,38 +33,35 @@ const SearchBar = () => {
     setSearch("");
   };
 
-const Products = async (value: string) => {
-  let data1;
-  let data2;
+  const Products = async (value: string) => {
+    let data1;
+    let data2;
 
-  try {
-    const drinksArray = await axios.get("http://127.0.0.1:8000/api/v1/drinks/");
-    const foodArray = await axios.get("http://127.0.0.1:8000/api/v1/food/");
+    try {
+      const drinksArray = await axios.get(
+        "http://127.0.0.1:8000/api/v1/drinks/"
+      );
+      const foodArray = await axios.get("http://127.0.0.1:8000/api/v1/food/");
 
-    data1 = drinksArray.data.drinks;
-    data2 = foodArray.data.food;
+      data1 = drinksArray.data.drinks;
+      data2 = foodArray.data.food;
+      
+    } catch (error) {
+      console.log("Ошибка при выполнении запроса", error);
+    }
 
-    // Обработка данных...
-  } catch (error) {
-    console.log("Ошибка при выполнении запроса", error);
-  }
+    const filteredProducts = [...data1, ...data2].filter((products) =>
+      products.name.toLowerCase().includes(value.toLowerCase())
+    );
 
-  // Найдите соответствующие данные в двух массивах
-  const filteredProducts = [...data1, ...data2].filter((products) =>
-    products.name.toLowerCase().includes(value.toLowerCase())
-  );
+    setProducts(filteredProducts);
+  };
 
-  setProducts(filteredProducts);
-};
-
-
-
- const onChangeInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onChangeInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setSearch(e.target.value);
   };
 
   const debouncedRequest = useMemo(() => debounce(Products, 100), [Products]);
-
 
   useEffect(() => {
     if (search) {

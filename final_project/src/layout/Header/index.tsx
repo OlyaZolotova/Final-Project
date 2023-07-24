@@ -26,7 +26,7 @@ export const Header = () => {
     };
 
 
-  if (window.location.pathname === "/home") {
+  if (window.location.pathname === "/") {
     headerStyle.backgroundColor = "transparent";
   } else {
     headerStyle.backgroundColor = "black";
@@ -60,11 +60,13 @@ export const Header = () => {
                   coffee constructor
                 </a>
               </li>
-              <li className="header__menu-list">
-                <a className="header__menu-link" href="#team">
-                  contacts
-                </a>
-              </li>
+              <Link to={Routes.Information}>
+                <li className="header__menu-list">
+                  <a className="header__menu-link" href="#team">
+                    information
+                  </a>
+                </li>
+              </Link>
             </ul>
             {/* <div class="hamburger">
               <svg

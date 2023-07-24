@@ -16,6 +16,10 @@ import Drink from "./pages/Drink";
 import FoodFromCategory from "./pages/FoodFromCategory";
 import FoodProduct from "./pages/Food";
 import SearchBar from "./layout/Search/Search";
+import Information from "./pages/Information";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Verify from "./pages/Verify";
 
 // sass installation: npm install node-sass
 
@@ -32,18 +36,18 @@ const router = createBrowserRouter([
         path: Routes.Home,
         element: <Home />,
       },
-      // {
-      //   path: Routes.Register,
-      //   element: <Register />,
-      // },
-      // {
-      //   path: Routes.Login,
-      //   element: <Login />,
-      // },
-      // {
-      //   path: Routes.Verify,
-      //   element: <Verify />,
-      // },
+      {
+        path: Routes.Register,
+        element: <Register />,
+      },
+      {
+        path: Routes.Login,
+        element: <Login />,
+      },
+      {
+        path: Routes.Verify,
+        element: <Verify />,
+      },
       {
         path: Routes.Menu,
         element: <Menu />,
@@ -67,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: Routes.SearchBar,
         element: <SearchBar />,
+      },
+      {
+        path: Routes.Information,
+        element: <Information />,
       },
     ],
   },

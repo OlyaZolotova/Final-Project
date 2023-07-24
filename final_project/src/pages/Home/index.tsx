@@ -13,6 +13,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
+import { Routes } from "../../constants/Routes";
 
 const Home = () => {
   const {
@@ -55,13 +57,18 @@ const Home = () => {
               <h2 className="bestsellers__title">Bestsellers</h2>
               <Slider {...settings}>
                 {bestsellers.slice(5, 11).map((bestseller: any) => (
-                  <Bestseller
+                  <Link
+                    to={Routes.Drink.replace(":id", bestseller.id.toString())}
                     key={bestseller.id}
-                    name={bestseller.name}
-                    price={bestseller.price}
-                    image={bestseller.image}
-                    description={bestseller.description}
-                  />
+                  >
+                    <Bestseller
+                      key={bestseller.id}
+                      name={bestseller.name}
+                      price={bestseller.price}
+                      image={bestseller.image}
+                      description={bestseller.description}
+                    />
+                  </Link>
                 ))}
               </Slider>
             </div>

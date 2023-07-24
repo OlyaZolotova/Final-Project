@@ -1,7 +1,5 @@
-.category__container {
-  max-width: 1250px;
-  padding: 200px 15px 0;
-  margin: 0 auto;
+.category__wrapper {
+  padding: 220px 15px 0;
   margin-bottom: 100px;
 }
 .category__wrap {
@@ -13,10 +11,12 @@
   align-items: center;
 }
 .category__title {
-  font-size: 34px;
-  line-height: 36px;
-  font-family: "Italiana", serif;
-  font-weight: 400;
-  margin-bottom: 50px;
-}
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 48px;
+    line-height: 50px;
+    font-family: "Italiana", serif;
+    font-weight: 400;
+    margin-bottom: 35px;
+  }
 

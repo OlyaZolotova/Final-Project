@@ -36,7 +36,7 @@ export const Drinks = () => {
         <CircularProgress />
       ) : (
         <div className="category__container">
-          <h3 className="category__title">Drinks</h3>
+          <h3 className="category__subtitle">Drinks</h3>
           <div className="category__wrap">
             {coffeecategory.map((category: any) => (
               <Link

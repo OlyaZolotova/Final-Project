@@ -5,12 +5,7 @@
   column-gap: 30px;
   &__container {
     max-width: 1250px;
-    padding: 200px 15px 0;
     margin: 0 auto;
-    margin-bottom: 100px;
-    &-food {
-      padding: 0 15px;
-    }
   }
   &__wrap {
     display: grid;
@@ -20,7 +15,16 @@
     justify-content: center;
     align-items: center;
   }
-  &__title {
+    &__title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 48px;
+    line-height: 50px;
+    font-family: "Italiana", serif;
+    font-weight: 400;
+    margin-bottom: 35px;
+  }
+  &__subtitle {
     font-size: 34px;
     line-height: 36px;
     font-family: "Italiana", serif;

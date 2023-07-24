@@ -21,7 +21,7 @@ export const Bestseller = ({ name, price, description, image}: IBestseller) => {
           />
         </div>
         <div className="bestseller__content">
-          <p className="bestseller__price">{price} $</p>
+          <p className="bestseller__price">{price}$</p>
           <h4 className="bestseller__name">{name}</h4>
           <p className="bestseller__description">{description}</p>
         </div>
