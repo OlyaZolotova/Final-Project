@@ -1,4 +1,4 @@
-.product{
+.product {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   align-items: center;
@@ -19,6 +19,19 @@
     row-gap: 40px;
     justify-content: center;
     align-items: center;
+  }
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 10px;
+    margin-bottom: 30px;
+  }
+  &__link {
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 400;
   }
   &__title {
     font-size: 34px;

@@ -14,7 +14,6 @@ import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Slider from "react-slick";
 
-
 const Home = () => {
   const {
     bestsellers,
@@ -28,13 +27,13 @@ const Home = () => {
     dispatch(fetchPosts());
   }, []);
 
-   const settings = {
-     dots: true,
-     infinite: true,
-     speed: 500,
-     slidesToShow: 3,
-     slidesToScroll: 1,
-   };
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
 
   if (error) {
     return (
@@ -51,19 +50,21 @@ const Home = () => {
       ) : (
         <div>
           <Video />
-          <div className="container" id="features">
-            <h2 className="bestsellers__title">Bestsellers</h2>
-            <Slider {...settings}>
-              {bestsellers.slice(5, 11).map((bestseller: any) => (
-                <Bestseller
-                  key={bestseller.id}
-                  name={bestseller.name}
-                  price={bestseller.price}
-                  image={bestseller.image}
-                  description={bestseller.description}
-                />
-              ))}
-            </Slider>
+          <div className="bestseller__wrap">
+            <div className="container">
+              <h2 className="bestsellers__title">Bestsellers</h2>
+              <Slider {...settings}>
+                {bestsellers.slice(5, 11).map((bestseller: any) => (
+                  <Bestseller
+                    key={bestseller.id}
+                    name={bestseller.name}
+                    price={bestseller.price}
+                    image={bestseller.image}
+                    description={bestseller.description}
+                  />
+                ))}
+              </Slider>
+            </div>
           </div>
           <Categories />
           <Info />

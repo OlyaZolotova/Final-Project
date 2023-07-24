@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./style.scss";
+import { Link } from "react-router-dom";
+import { Routes } from "../../constants/Routes";
 
 const Drink = () => {
   const [drink, setDrink] = useState([
@@ -30,6 +32,21 @@ const Drink = () => {
     <>
       {drink.map((product) => (
         <div className="drink">
+          <div className="drink__links">
+            <Link to={Routes.Home}>
+              <a className="drink__link">Main</a>
+            </Link>
+            <p className="drink__link">/</p>
+            <Link to={Routes.Menu}>
+              <a className="drink__link">Menu</a>
+            </Link>
+            <p className="drink__link">/</p>
+            <Link to={Routes.DrinksFromCategory}>
+              <a className="drink__link">Food</a>
+            </Link>
+            <p className="drink__link">/</p>
+            <p className="drink__link">{product.name}</p>
+          </div>
           <div className="drink__wrapper">
             <div className="drink__wrap">
               <div className="drink__image">

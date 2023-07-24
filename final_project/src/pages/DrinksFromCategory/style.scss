@@ -1,13 +1,13 @@
 a {
-   text-decoration: none;
-   color: black;
-    &:hover {
-      color: #af8e4d;
-    }
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: #af8e4d;
+  }
 
-    &:active {
-      color: #8c713c;
-    }
+  &:active {
+    color: #8c713c;
+  }
 }
 .drinks {
   display: grid;
@@ -22,6 +22,19 @@ a {
     &-food {
       padding: 0 15px;
     }
+  }
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 10px;
+    margin-bottom: 50px;
+  }
+  &__link {
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 400;
   }
   &__wrap {
     display: grid;

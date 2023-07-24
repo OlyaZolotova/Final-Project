@@ -12,6 +12,19 @@
       padding: 0 15px;
     }
   }
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 10px;
+    margin-bottom: 50px;
+  }
+    &__link {
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 400;
+  }
   &__wrap {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

@@ -28,6 +28,17 @@ const DrinksFromCategory = () => {
 
   return (
     <div className="drinks__container">
+      <div className="drinks__links">
+        <Link to={Routes.Home}>
+          <a className="drinks__link">Main</a>
+        </Link>
+        <p className="drinks__link">/</p>
+        <Link to={Routes.Menu}>
+          <a className="drinks__link">Menu</a>
+        </Link>
+        <p className="drinks__link">/</p>
+        <p className="drinks__link">Food</p>
+      </div>
       <div className="drinks__wrap">
         {drinks.map((drink) => (
           <Link

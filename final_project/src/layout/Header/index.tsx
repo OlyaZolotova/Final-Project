@@ -19,10 +19,22 @@ import { Routes } from "../../constants/Routes";
 export const Header = () => {
   const { theme } = useContext<any>(ThemeContext);
 
-  const user = useSelector((store: any) => store.user);
+  // const user = useSelector((store: any) => store.user);
+
+    const headerStyle = {
+      backgroundColor: "",
+    };
+
+
+  if (window.location.pathname === "/home") {
+    headerStyle.backgroundColor = "transparent";
+  } else {
+    headerStyle.backgroundColor = "black";
+  }
+
 
   return (
-    <header className="header">
+    <header className="header" style={headerStyle}>
       <div className="container">
         <div
           className={clsx("header__wrapper", {
@@ -71,12 +83,14 @@ export const Header = () => {
             </div> */}
           </nav>
           <div className="header__wrapper-icon">
-            <a className="header__icon" href="#">
-              <FontAwesomeIcon
-                className="header__icon-svg"
-                icon={faMagnifyingGlass}
-              />
-            </a>
+            <Link to={Routes.SearchBar}>
+              <a className="header__icon" href="#">
+                <FontAwesomeIcon
+                  className="header__icon-svg"
+                  icon={faMagnifyingGlass}
+                />
+              </a>
+            </Link>
             <a className="header__icon" href="#">
               <FontAwesomeIcon className="header__icon-svg" icon={faUser} />
             </a>

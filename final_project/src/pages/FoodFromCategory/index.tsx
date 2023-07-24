@@ -29,21 +29,38 @@ const FoodFromCategory = () => {
 
   return (
     <div className="food__container">
+      <div className="food__links">
+        <Link to={Routes.Home}>
+          <a className="food__link">Main</a>
+        </Link>
+        <p className="food__link">/</p>
+        <Link to={Routes.Menu}>
+          <a className="food__link">Menu</a>
+        </Link>
+        <p className="food__link">/</p>
+        <p className="food__link">Food</p>
+      </div>
       <div className="food__wrap">
         {food.map((item) => (
-          <Link
-            to={Routes.FoodProduct.replace(":id", item.id.toString())}
-            key={item.id}
-          >
-            <div className="food">
-              <div className="food__image">
-                <img className="food__image-png" src={item.image} alt="foto" />
+          <>
+            <Link
+              to={Routes.FoodProduct.replace(":id", item.id.toString())}
+              key={item.id}
+            >
+              <div className="food">
+                <div className="food__image">
+                  <img
+                    className="food__image-png"
+                    src={item.image}
+                    alt="foto"
+                  />
+                </div>
+                <div className="food__content">
+                  <h4 className="food__name">{item.name}</h4>
+                </div>
               </div>
-              <div className="food__content">
-                <h4 className="food__name">{item.name}</h4>
-              </div>
-            </div>
-          </Link>
+            </Link>
+          </>
         ))}
       </div>
     </div>

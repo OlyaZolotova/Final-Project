@@ -1,5 +1,5 @@
 export enum Routes {
-  Home = "/",
+  Home = "/home",
   Register = "/register",
   Login = "/login",
   Verify = "/verify/:uid/:token",
@@ -9,4 +9,5 @@ export enum Routes {
   Drink = "/drink/:id",
   FoodFromCategory = "/food/:slug",
   FoodProduct = "/foodproduct/:id",
+  SearchBar = "/search",
 }
