@@ -9,14 +9,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../store/actions/user";
 import { useNavigate } from "react-router-dom";
 import { Routes } from "../../constants/Routes";
+import "./style.scss";
 
 const LoginSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Required"),
+  username: Yup.string().min(4, "Too shoort name").required("Required"),
   password: Yup.string().required("Required"),
 });
 
 const initialValues = {
-  email: "",
+  username: "",
   password: "",
 };
 
@@ -64,13 +65,15 @@ const Login = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="login">
+      <h2 className="login__title">Login</h2>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
         validationSchema={LoginSchema}
       >
         <Form
+          className="login__form"
           style={{
             marginTop: 30,
             display: "flex",
@@ -78,7 +81,13 @@ const Login = () => {
             maxWidth: 400,
           }}
         >
-          <DefaultTextField label="Email" variant="outlined" name="email" />
+          <DefaultTextField
+            className="register__text"
+            label="Username"
+            variant="outlined"
+            placeholder="Username"
+            name="username"
+          />
           <DefaultTextField
             label="Password"
             variant="outlined"

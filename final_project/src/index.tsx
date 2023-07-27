@@ -20,6 +20,8 @@ import Information from "./pages/Information";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Verify from "./pages/Verify";
+import Favorites from "./pages/Favorites";
+import Cart from "./pages/Cart/Cart";
 
 // sass installation: npm install node-sass
 
@@ -76,6 +78,15 @@ const router = createBrowserRouter([
         path: Routes.Information,
         element: <Information />,
       },
+      {
+        path: Routes.Favorites,
+        element: <Favorites />,
+      },
+      {
+        path: Routes.Cart,
+        element: <Cart />,
+      },
+
     ],
   },
 ]);

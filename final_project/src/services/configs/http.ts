@@ -1,6 +1,6 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 import { LOCAL_STORAGE_KEYS } from "../../constants/LocalStorageKeys";
-// import { authService } from "../auth";
+import { authService } from "../auth";
 
 const api = axios.create({
   baseURL: "http://127.0.0.1:8000",
@@ -40,7 +40,7 @@ const api = axios.create({
 
 //           return api(originalRequest);
 //         }
-// //       }
+//       }
 //     }
 //   }
 // );

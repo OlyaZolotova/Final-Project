@@ -1,22 +1,51 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import { cartReducer } from "./reducers/cartSlice";
 import { bestsellersReducer } from "./reducers/bestsellers";
-// import { userReducer } from "./reducers/user";
+import { userReducer } from "./reducers/user";
 import { coffeecategoryReducer } from "./reducers/coffeecategory";
 import { foodcategoryReducer } from "./reducers/foodcategory";
-// import { drinksReducer } from "./reducers/drinks";
 
-export const rootReducer = combineReducers({
+const rootReducer = combineReducers({
+  cart: cartReducer,
   bestsellers: bestsellersReducer,
   foodcategory: foodcategoryReducer,
   coffeecategory: coffeecategoryReducer,
-  // user: userReducer,
+  user: userReducer,
 });
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+const persistConfig = {
+  key: "root",
+  storage,
+};
 
-export type RootState = ReturnType<typeof store.getState>
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export type AppDispatch = typeof store.dispatch
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+export const persistor = persistStore(store);
+
+export type RootState = ReturnType<typeof store.getState>;
 
 
+export type AppDispatch = typeof store.dispatch;

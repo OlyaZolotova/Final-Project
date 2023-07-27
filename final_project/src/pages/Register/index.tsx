@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import { authService } from "../../services/auth";
 import { useState } from "react";
 import "./style.scss";
+import { Link } from "react-router-dom";
+import { Routes } from "../../constants/Routes";
 
 const RegisterSchema = Yup.object().shape({
   username: Yup.string().min(4, "Too shoort name").required("Required"),
@@ -86,6 +88,9 @@ const Register = () => {
           </Button>
         </Form>
       </Formik>
+      <Link to={Routes.Login}>
+        <a className="register__link">If you are already registered please login.</a>
+      </Link>
     </div>
   );
 };

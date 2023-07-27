@@ -21,17 +21,15 @@ export const Header = () => {
 
   // const user = useSelector((store: any) => store.user);
 
-    const headerStyle = {
-      backgroundColor: "",
-    };
-
+  const headerStyle = {
+    backgroundColor: "",
+  };
 
   if (window.location.pathname === "/") {
     headerStyle.backgroundColor = "transparent";
   } else {
     headerStyle.backgroundColor = "black";
   }
-
 
   return (
     <header className="header" style={headerStyle}>
@@ -93,10 +91,11 @@ export const Header = () => {
                 />
               </a>
             </Link>
-            <a className="header__icon" href="#">
-              <FontAwesomeIcon className="header__icon-svg" icon={faUser} />
-            </a>
-            {/* <FontAwesomeIcon className="header__icon" icon={faSun} /> */}
+            <Link to={Routes.Register}>
+              <a className="header__icon" href="#">
+                <FontAwesomeIcon className="header__icon-svg" icon={faUser} />
+              </a>
+            </Link>
             <a className="header__icon" href="#">
               <FontAwesomeIcon
                 className="header__icon-svg"

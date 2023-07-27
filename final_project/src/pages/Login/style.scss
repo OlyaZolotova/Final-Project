@@ -1,4 +1,4 @@
-.register {
+.login {
    padding: 200px 0 0;
    margin-bottom: 100px;
      &__title {
@@ -17,48 +17,52 @@
        width: 100%;
        margin: 0 auto;
   }
-  &__link {
-    color: black;
-    font-family: "DM Sans", sans-serif;
-    font-size: 16px;
-    line-height: 18px;
-    font-weight: 400;
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    text-transform: uppercase;
-    max-width: 400px;
-    width: 100%;
-    padding: 20px 10px 20px;
-    margin: 0 auto;
-    position: relative;
-    // @media (min-width: 768px) and (max-width: 1024px) {
-    //   font-size: 12px;
-    //   line-height: 14px;
-    //   min-width: 112px;
-    //   padding: 43px 10px 43px;
-    // }
-    &::before {
-      content: "";
-      width: 100%;
-      border-bottom: 3px solid transparent;
-      display: inline-block;
-      position: absolute;
-      left: 0;
-      top: 100%;
-      transform: translateY(-100%);
-    }
-    &:hover::before {
-      border-bottom: 3px solid #af8e4d;
-    }
-    &:active::before {
-      border-bottom: 3px solid #8c713c;
-    }
-    &:active {
-      color: #af8e4d;
-    }
-  }
 }
+//   &__link {
+//     color: black;
+//     font-family: "DM Sans", sans-serif;
+//     font-size: 16px;
+//     line-height: 18px;
+//     font-weight: 400;
+//     text-align: center;
+//     display: block;
+//     text-decoration: none;
+//     text-transform: uppercase;
+//     max-width: 400px;
+//     width: 100%;
+//     padding: 20px 10px 20px;
+//     margin: 0 auto;
+//     position: relative;
+//     // @media (min-width: 768px) and (max-width: 1024px) {
+//     //   font-size: 12px;
+//     //   line-height: 14px;
+//     //   min-width: 112px;
+//     //   padding: 43px 10px 43px;
+//     // }
+//     &::before {
+//       content: "";
+//       width: 100%;
+//       border-bottom: 3px solid transparent;
+//       display: inline-block;
+//       position: absolute;
+//       left: 0;
+//       top: 100%;
+//       transform: translateY(-100%);
+//     }
+//     &:hover::before {
+//       border-bottom: 3px solid #af8e4d;
+//     }
+//     &:active::before {
+//       border-bottom: 3px solid #8c713c;
+//     }
+//     &:active {
+//       color: #af8e4d;
+//     }
+//   }
+//   &__text {
+//    margin-bottom: 30px;
+//   }
+// }
 // .form__button {
 //   display: block;
 //   padding: 26px 0;

@@ -1,0 +1,32 @@
+.total {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 3fr) 1fr;
+  column-gap: 30px;
+  padding: 19px 0;
+  background: #af8e4d;
+  font-family: "DM Sans", sans-serif;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+
+  /* @media (max-width: $mobile) {
+    padding-left: 15px;
+    padding-right: 15px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: $mobile-xs) {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  } */
+
+  &__count {
+    grid-column-start: 3;
+
+    /* @media (max-width: $mobile) {
+      grid-column-start: 1;
+    } */
+  }
+}
