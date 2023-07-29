@@ -1,5 +1,6 @@
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { addToCart } from "../../store/reducers/cartSlice";
+import { addToFavorites } from "../../store/reducers/favorites";
 
 
 interface IItem {
@@ -61,6 +62,20 @@ function Item({
         }
       >
         Add to Cart
+      </button>
+      <button
+        onClick={() =>
+          dispatch(
+            addToFavorites({
+              id,
+              name,
+              image,
+              price,
+            })
+          )
+        }
+      >
+        Add to Fav
       </button>
     </div>
   );

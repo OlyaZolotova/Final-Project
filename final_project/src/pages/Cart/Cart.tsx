@@ -12,7 +12,6 @@ function Cart() {
       <div className="cart">
         <div className="container">
           <div className="cart__wrap">
-            <div>
               <h3 className="cart__title">Shopping Cart</h3>
               <div className="cart__header">
                 <p className="cart__text cart__text-title">наименование</p>
@@ -29,7 +28,6 @@ function Cart() {
                   quantity={item.quantity}
                 />
               ))}
-            </div>
           </div>
           <div className="cart__right">
             <Total />

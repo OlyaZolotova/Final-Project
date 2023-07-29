@@ -96,12 +96,14 @@ export const Header = () => {
                 <FontAwesomeIcon className="header__icon-svg" icon={faUser} />
               </a>
             </Link>
-            <a className="header__icon" href="#">
-              <FontAwesomeIcon
-                className="header__icon-svg"
-                icon={faBasketShopping}
-              />
-            </a>
+            <Link to={Routes.Cart}>
+              <a className="header__icon" href="#">
+                <FontAwesomeIcon
+                  className="header__icon-svg"
+                  icon={faBasketShopping}
+                />
+              </a>
+            </Link>
             <a className="header__icon" href="#">
               <FontAwesomeIcon className="header__icon-svg" icon={faHeart} />
             </a>

@@ -1,32 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
+import { FavoritesItem } from "./FavoritesItem";
+import "./index.scss";
 
 const Favorites = () => {
-//   const [favorites, setFavorites] = useState([]);
-
-//   useEffect(() => {
-//     // Получите параметры из URL
-//     const searchParams = new URLSearchParams(props.location.search);
-//     const productId = searchParams.get("productId");
-
-//     if (productId) {
-//       // Поиск товара по его идентификатору (productId) и добавление в избранное
-//       const product = 
-//         setFavorites([...favorites, product]);
-//     }
-//   }, []);
+  const { favorites } = useSelector((state: RootState) => state.favorites);
 
   return (
-    <div>
-      <h1>Избранное</h1>
-      {/* {favorites.length === 0 ? (
-        <p>Нет добавленных товаров в избранное</p>
-      ) : (
-        <ul>
-          {favorites.map((product, index) => (
-            <li key={index}>{product.name}</li>
+    <div className="favorites">
+      <div className="container">
+        <div className="favorites__wrap">
+          <h2 className="favorites__title">Favorites</h2>
+          {favorites.map((product: any) => (
+            <FavoritesItem
+              key={product.id}
+              id={product.id}
+              image={product.image}
+              name={product.name}
+              price={product.price}
+            />
           ))}
-        </ul>
-      )} */}
+        </div>
+      </div>
     </div>
   );
 };

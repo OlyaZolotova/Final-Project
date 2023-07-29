@@ -17,6 +17,7 @@ import { bestsellersReducer } from "./reducers/bestsellers";
 import { userReducer } from "./reducers/user";
 import { coffeecategoryReducer } from "./reducers/coffeecategory";
 import { foodcategoryReducer } from "./reducers/foodcategory";
+import { favoritesReducer } from "./reducers/favorites";
 
 const rootReducer = combineReducers({
   cart: cartReducer,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   foodcategory: foodcategoryReducer,
   coffeecategory: coffeecategoryReducer,
   user: userReducer,
+  favorites: favoritesReducer,
 });
 
 const persistConfig = {
