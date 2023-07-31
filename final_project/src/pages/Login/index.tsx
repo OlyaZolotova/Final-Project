@@ -48,10 +48,10 @@ const Login = () => {
       );
 
       const { data: user } = await authService.getCurrentUser();
+      console.log(user); // Вывод данных пользователя в консоль
 
       dispatch(setUser(user));
     } catch (error) {
-      console.dir(error);
     } finally {
       setIsLoading(false);
     }

@@ -15,21 +15,59 @@ import {
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { Link } from "react-router-dom";
 import { Routes } from "../../constants/Routes";
+import { useState } from "react";
+import { useEffect } from "react";
+import { ShoppingCart } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import { RootState } from "../../store";
 
 export const Header = () => {
   const { theme } = useContext<any>(ThemeContext);
 
   // const user = useSelector((store: any) => store.user);
 
-  const headerStyle = {
-    backgroundColor: "",
+  // const headerStyle = {
+  //   backgroundColor: "",
+  // };
+
+  // if (window.location.pathname === "/") {
+  //   headerStyle.backgroundColor = "transparent";
+  // } else {
+  //   headerStyle.backgroundColor = "black";
+  // }
+  const [headerStyle, setHeaderStyle] = useState({ backgroundColor: "" });
+
+  useEffect(() => {
+    const updateHeaderStyle = () => {
+      if (window.location.pathname === "/") {
+        setHeaderStyle({ backgroundColor: "transparent" });
+      } else {
+        setHeaderStyle({ backgroundColor: "black" });
+      }
+    };
+
+    updateHeaderStyle(); // Вызываем функцию сразу для установки начального стиля
+
+    // Добавляем слушатель события изменения маршрута
+    window.addEventListener("popstate", updateHeaderStyle);
+
+    // Очищаем слушатель при размонтировании компонента
+    return () => {
+      window.removeEventListener("popstate", updateHeaderStyle);
+    };
+  }, []);
+
+  const { cart } = useSelector((state: RootState) => state.cart);
+
+  const getTotalQuantity = (): number => {
+    let total = 0;
+    cart.map((item: any) => {
+      total += item.quantity;
+    });
+    return total;
   };
 
-  if (window.location.pathname === "/") {
-    headerStyle.backgroundColor = "transparent";
-  } else {
-    headerStyle.backgroundColor = "black";
-  }
+
 
   return (
     <header className="header" style={headerStyle}>
@@ -101,12 +139,16 @@ export const Header = () => {
                 <FontAwesomeIcon
                   className="header__icon-svg"
                   icon={faBasketShopping}
-                />
+                /> 
+                <p className="header__text">{getTotalQuantity() || 0}</p>
+              </a>
+             
+            </Link>
+            <Link to={Routes.Favorites}>
+              <a className="header__icon" href="#">
+                <FontAwesomeIcon className="header__icon-svg" icon={faHeart} />
               </a>
             </Link>
-            <a className="header__icon" href="#">
-              <FontAwesomeIcon className="header__icon-svg" icon={faHeart} />
-            </a>
             <ThemeSwitcher />
           </div>
           {/* <h3 className="header__username">{user && user?.username}</h3> */}

@@ -6,44 +6,44 @@ const api = axios.create({
   baseURL: "http://127.0.0.1:8000",
 });
 
-// let isRequest = false;
+let isRequest = false;
 
-// const noAuthCode = 401;
+const noAuthCode = 401;
 
-// api.interceptors.request.use((config) => {
-//   const token = localStorage.getItem(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
 
-//   config.headers.Authorization = "Bearer " + token;
+  config.headers.Authorization = "Bearer " + token;
 
-//   return config;
-// });
+  return config;
+});
 
-// api.interceptors.response.use(
-//   (response) => {
-//     isRequest = false;
+api.interceptors.response.use(
+  (response) => {
+    isRequest = false;
 
-//     return response;
-//   },
-//   async (error) => {
-//     if (error instanceof AxiosError) {
-//       const originalRequest = error.config as InternalAxiosRequestConfig<any>;
+    return response;
+  },
+  async (error) => {
+    if (error instanceof AxiosError) {
+      const originalRequest = error.config as InternalAxiosRequestConfig<any>;
 
-//       if (error.response?.status === noAuthCode && !isRequest) {
-//         const refresh = localStorage.getItem(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
+      if (error.response?.status === noAuthCode && !isRequest) {
+        const refresh = localStorage.getItem(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
 
-//         if (refresh) {
-//           isRequest = true;
+        if (refresh) {
+          isRequest = true;
 
-//           const { data } = await authService.refreshAccessToken(refresh);
+          const { data } = await authService.refreshAccessToken(refresh);
 
-//           localStorage.setItem(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, data.access);
+          localStorage.setItem(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, data.access);
 
-//           return api(originalRequest);
-//         }
-//       }
-//     }
-//   }
-// );
+          return api(originalRequest);
+        }
+      }
+    }
+  }
+);
 
 /* 
 -> 401 Error 

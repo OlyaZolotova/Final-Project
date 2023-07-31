@@ -9,7 +9,7 @@
   z-index: 1;
   top: 0;
   width: 100%;
-    &::before {
+  &::before {
     content: "";
     display: block;
     position: absolute;
@@ -99,36 +99,36 @@
     }
   }
 
-  &__search {
-    position: relative;
-    max-width: 600px;
-    width: 100%;
-  }
+  // &__search {
+  //   position: relative;
+  //   max-width: 600px;
+  //   width: 100%;
+  // }
 
-  &__input {
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: rgb(255, 255, 255);
-    // background-image: url(../img/Group\ 58.svg);
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 8px 20px 8px 40px;
-    border: none;
-  }
+  // &__input {
+  //   width: 100%;
+  //   box-sizing: border-box;
+  //   border-radius: 8px;
+  //   font-size: 16px;
+  //   background-color: rgb(255, 255, 255);
+  //   // background-image: url(../img/Group\ 58.svg);
+  //   background-position: 10px 10px;
+  //   background-repeat: no-repeat;
+  //   padding: 8px 20px 8px 40px;
+  //   border: none;
+  // }
 
-  &__input:hover {
-    box-shadow: 0 0 10px rgb(162, 193, 255);
-  }
+  // &__input:hover {
+  //   box-shadow: 0 0 10px rgb(162, 193, 255);
+  // }
 
-  &__input:focus {
-    box-shadow: 0 0 20px #1976d2;
-    background-color: rgb(255, 255, 255);
-    color: #1976d2;
-    border: none;
-    outline: none;
-  }
+  // &__input:focus {
+  //   box-shadow: 0 0 20px #1976d2;
+  //   background-color: rgb(255, 255, 255);
+  //   color: #1976d2;
+  //   border: none;
+  //   outline: none;
+  // }
 
   &__username {
     font-family: "DM Sans";
@@ -150,17 +150,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    &:hover {
+      transform: scale(1.2);
+    }
+    &:active {
+      color: #af8e4d;
+    }
     &-svg {
       color: white;
       width: 100%;
       height: 100%;
       object-fit: contain;
-      &:hover {
-        transform: scale(1.2);
-      }
-      &:active {
-        color: #af8e4d;
-      }
     }
+  }
+  &__text {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #af8e4d;
+    padding: 3px 3px;
+    color: white;
+    border-radius: 50px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 400;
+    max-width: 17px;
+    width: 100%;
+    text-align: center;
   }
 }

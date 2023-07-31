@@ -11,7 +11,15 @@ export const foodcategorySlice = createSlice({
   name: "foodcategory",
   initialState: foodCategoryDefaultState,
 
-  reducers: {},
+  reducers: {
+    // setFoodCategory: (state, action) => {
+    //   state.foodcategory = action.payload;
+    //   window.localStorage.setItem(
+    //     "coffeecategory",
+    //     JSON.stringify(action.payload)
+    //   );
+    // },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(foodcategories.fulfilled, (state, action) => {

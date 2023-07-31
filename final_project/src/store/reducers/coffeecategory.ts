@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"; 
 import { drinkscategories } from "../actions/coffeecategory";
 
+
 const coffeeCategoryDefaultState = {
   coffeecategory: [],
   loading: false,
@@ -11,7 +12,15 @@ export const coffeecategorySlice = createSlice({
   name: "coffeecategory",
   initialState: coffeeCategoryDefaultState,
 
-  reducers: {},
+  reducers: {
+    // setCoffeeCategory: (state, action) => {
+    //   state.coffeecategory = action.payload;
+    //   localStorage.setItem(
+    //     "coffeecategory",
+    //     JSON.stringify(action.payload)
+    //   );
+    // },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(drinkscategories.fulfilled, (state, action) => {

@@ -20,10 +20,12 @@ const Drink = () => {
       price: 0,
       description: "",
       number_of_drink_glass_sizes: 0,
+      slug: "",
     },
   ]);
 
   const navigate = useNavigate();
+  
   const { cart } = useSelector((state: RootState) => state.cart);
 
   const getTotalQuantity = (): number => {
@@ -71,6 +73,8 @@ const Drink = () => {
             <p className="drink__link">{product.name}</p>
           </div>
           <Item
+            slug={product.slug}
+            id={product.id}
             key={product.id}
             name={product.name}
             price={product.price}

@@ -12,7 +12,6 @@ export enum Routes {
   SearchBar = "/search",
   Information = "/information",
   Favorites = "/favorites",
-  Basket = "/basket",
   Cart = "/cart",
-  Home1 = "/home1",
+  SearchProduct = "/product/:slug",
 }

@@ -26,27 +26,26 @@ function Item({
 
   return (
     <div className="item">
-      <div className="drink__wrapper">
-        <div className="drink__wrap">
-          <div className="drink__image">
-            <img className="drink__image-png" src={image} alt="foto" />
+      <div className="product__wrapper">
+        <div className="product__wrap">
+          <div className="product__image">
+            <img className="product__image-png" src={image} alt="foto" />
           </div>
-          <div className="drink__info">
-            <h4 className="drink__name">{name}</h4>
-            <p className="drink__price">{price}$</p>
+          <div className="product__info">
+            <h4 className="product__name">{name}</h4>
+            <p className="product__price">{price}$</p>
           </div>
         </div>
       </div>
-      <div className="drink__content">
+      <div className="product__content">
         <div className="container">
-          <div className="drink__columns">
-            <div className="drink__column">
-              <div className="drink__size">{number_of_drink_glass_sizes}</div>
-              <p className="drink__description">{description}</p>
+          <div className="product__columns">
+            <div className="product__column">
+              <p className="product__description">{description}</p>
             </div>
-            <div className="drink__column">
+            <div className="product__column">
               <button
-                className="drink__button"
+                className="product__button"
                 onClick={() =>
                   dispatch(
                     addToCart({
@@ -62,7 +61,7 @@ function Item({
                 Add to Cart
               </button>
               <button
-                className="drink__button"
+                className="product__button"
                 onClick={() =>
                   dispatch(
                     addToFavorites({

@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Routes } from "../../constants/Routes";
-import { bestsellersService } from "../../services";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
+import "./style.scss";
 
 const debounce = (callback: (...args: any) => void, ms: number) => {
   let timerId: NodeJS.Timeout;
@@ -45,7 +45,6 @@ const SearchBar = () => {
 
       data1 = drinksArray.data.drinks;
       data2 = foodArray.data.food;
-      
     } catch (error) {
       console.log("Ошибка при выполнении запроса", error);
     }
@@ -90,30 +89,27 @@ const SearchBar = () => {
         Поиск
       </button>
       {(!!products.length || isLoading) && (
-        <div
-          style={{
-            position: "absolute",
-            width: 153,
-            minHeight: 100,
-            background: "#ffffff",
-            boxShadow: "0px 1px 4px #000000",
-            zIndex: 1111111,
-            display: "flex",
-            flexDirection: "column",
-            gap: 12,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div>
           {isLoading ? (
             <CircularProgress />
           ) : (
             products.map((product) => (
               <Link
-                to={Routes.Drink.replace(":id", product.id)}
+                to={Routes.SearchProduct.replace(":slug", product.slug)}
                 onClick={() => setSearch("")}
               >
-                {product.name}
+                <div className="drinks">
+                  <div className="drinks__image">
+                    <img
+                      className="drinks__image-png"
+                      src={"http://127.0.0.1:8000"+product.image}
+                      alt="foto"
+                    />
+                  </div>
+                  <div className="drinks__content">
+                    <h4 className="drinks__name">{product.name}</h4>
+                  </div>
+                </div>
               </Link>
             ))
           )}

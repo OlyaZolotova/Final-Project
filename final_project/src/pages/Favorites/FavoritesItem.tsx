@@ -4,16 +4,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
+import { removeItem } from "../../store/reducers/favorites";
 import "./favoritesItem.scss";
+import { addToCart } from "../../store/reducers/cartSlice";
+
 
 interface IFavoritesItem {
-  id?: number;
+  id: number;
   name: string;
   price: number;
   image: string;
+  slug: string;
 }
 
-export const FavoritesItem = ({ id, image, name, price }: IFavoritesItem) => {
+export const FavoritesItem = ({ id, image, name, price, slug }: IFavoritesItem) => {
   const dispatch = useAppDispatch();
   return (
     <div className="favoritesItem">
@@ -22,10 +26,26 @@ export const FavoritesItem = ({ id, image, name, price }: IFavoritesItem) => {
       </div>
       <p className="favoritesItem__title">{name}</p>
       <div className="favoritesItem__price">
-        <p className="cartItem__price-value">{price}$</p>
+        <p className="favoritesItem__price-value">{price}$</p>
       </div>
+      <button
+        className="favoritesItem__button"
+        onClick={() =>
+          dispatch(
+            addToCart({
+              slug,
+              id,
+              name,
+              image,
+              price,
+            })
+          )
+        }
+      >
+        Add to Cart
+      </button>
       <div className="favoritesItem__controls">
-        {/* <a
+        <a
           className="favoritesItem__removeButton"
           onClick={() => dispatch(removeItem(id))}
         >
@@ -33,7 +53,7 @@ export const FavoritesItem = ({ id, image, name, price }: IFavoritesItem) => {
             className="favoritesItem__removeButton-svg"
             icon={faTrash}
           />
-        </a> */}
+        </a>
       </div>
     </div>
   );

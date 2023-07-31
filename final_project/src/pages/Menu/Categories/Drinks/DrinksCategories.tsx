@@ -8,6 +8,8 @@ import { DrinkCategory } from "./DrinkCategory";
 import { Link } from "react-router-dom";
 import { Routes } from "../../../../constants/Routes";
 import "../style.scss";
+import { useState } from "react";
+import { coffeecategorySlice } from "../../../../store/reducers/coffeecategory";
 
 export const Drinks = () => {
   const {
@@ -18,9 +20,20 @@ export const Drinks = () => {
 
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(drinkscategories());
-  }, []);
+    useEffect(() => {
+      dispatch(drinkscategories());
+    }, []);
+
+  // useEffect(() => {
+  //   const savedCoffeeCategory = localStorage.getItem("coffeecategory");
+  //   if (savedCoffeeCategory) {
+  //     dispatch(
+  //       coffeecategorySlice.actions.setCoffeeCategory(
+  //         JSON.parse(savedCoffeeCategory)
+  //       )
+  //     );
+  //   }
+  // }, [dispatch]);
 
   if (error) {
     return (
@@ -42,7 +55,7 @@ export const Drinks = () => {
               <Link
                 style={{
                   textDecoration: "none",
-                  color: "black"
+                  color: "black",
                 }}
                 to={Routes.DrinksFromCategory.replace(":slug", category.slug)}
               >

@@ -8,6 +8,7 @@ import { FoodCategory } from "./FoodCategory";
 import { Link } from "react-router-dom";
 import { Routes } from "../../../../constants/Routes";
 import "../style.scss";
+import { foodcategorySlice } from "../../../../store/reducers/foodcategory";
 
 export const Food = () => {
   const {
@@ -21,6 +22,17 @@ export const Food = () => {
   useEffect(() => {
     dispatch(foodcategories());
   }, []);
+
+  // useEffect(() => {
+  //   const savedFoodCategory = window.localStorage.getItem("foodcategory");
+  //   if (savedFoodCategory) {
+  //     dispatch(
+  //       foodcategorySlice.actions.setFoodCategory(
+  //         JSON.parse(savedFoodCategory)
+  //       )
+  //     );
+  //   }
+  // }, [dispatch]);
 
   if (error) {
     return (
@@ -39,17 +51,14 @@ export const Food = () => {
           <h3 className="category__subtitle">Food</h3>
           <div className="category__wrap">
             {foodcategory.map((category: any) => (
-                <Link
-                to={Routes.FoodFromCategory.replace(
-                  ":slug",
-                  category.slug
-                )}
+              <Link
+                to={Routes.FoodFromCategory.replace(":slug", category.slug)}
               >
-              <FoodCategory
-                key={category.id}
-                name={category.name}
-                image={category.image}
-              />
+                <FoodCategory
+                  key={category.id}
+                  name={category.name}
+                  image={category.image}
+                />
               </Link>
             ))}
           </div>

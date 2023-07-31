@@ -14,6 +14,7 @@ const Favorites = () => {
           <h2 className="favorites__title">Favorites</h2>
           {favorites.map((product: any) => (
             <FavoritesItem
+              slug={product.slug}
               key={product.id}
               id={product.id}
               image={product.image}

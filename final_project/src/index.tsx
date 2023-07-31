@@ -7,21 +7,19 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Root } from "./layout";
 import { Routes } from "./constants/Routes";
 import Home from "./pages/Home";
-// import Register from "./pages/Register";
-// import Verify from "./pages/Verify";
-// import Login from "./pages/Login";
 import Menu from "./pages/Menu/index";
 import DrinksFromCategory from "./pages/DrinksFromCategory";
 import Drink from "./pages/Drink";
 import FoodFromCategory from "./pages/FoodFromCategory";
 import FoodProduct from "./pages/Food";
-import SearchBar from "./layout/Search/Search";
+import SearchBar from "./pages/Search/Search";
 import Information from "./pages/Information";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Verify from "./pages/Verify";
 import Favorites from "./pages/Favorites";
 import Cart from "./pages/Cart/Cart";
+import SearchProduct from "./pages/ProductSearch";
 
 // sass installation: npm install node-sass
 
@@ -33,6 +31,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    
     children: [
       {
         path: Routes.Home,
@@ -86,7 +85,10 @@ const router = createBrowserRouter([
         path: Routes.Cart,
         element: <Cart />,
       },
-
+      {
+        path: Routes.SearchProduct,
+        element: <SearchProduct />,
+      },
     ],
   },
 ]);

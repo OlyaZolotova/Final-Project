@@ -43,7 +43,7 @@ const Register = () => {
   };
 
   if (user) {
-    return <h1>Dear {user.username}, pls verify your email</h1>;
+    return <h1>Dear {user.username}</h1>;
   }
 
   return (
@@ -81,7 +81,7 @@ const Register = () => {
             variant="contained"
             type="submit"
             endIcon={
-              isLoading ? <CircularProgress color="secondary" /> : undefined
+              isLoading ? <CircularProgress color="primary" /> : undefined
             }
           >
             Register

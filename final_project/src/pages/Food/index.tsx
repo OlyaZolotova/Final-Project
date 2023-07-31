@@ -4,13 +4,35 @@ import axios from "axios";
 import "./style.scss";
 import { Link } from "react-router-dom";
 import { Routes } from "../../constants/Routes";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
+import Item from "./Item";
+import { ShoppingCart } from "@mui/icons-material";
 
 const FoodProduct = () => {
-  const [foodproduct, setFoodProduct] = useState([{
-    id: 0,
-    name: "",
-    image: "",
-  }]);
+  const [foodproduct, setFoodProduct] = useState([
+    {
+      id: 0,
+      name: "",
+      image: "",
+      price: 0,
+      description: "",
+      number_of_drink_glass_sizes: 0,
+      slug: "",
+    },
+  ]);
+  const navigate = useNavigate();
+
+  const { cart } = useSelector((state: RootState) => state.cart);
+
+  const getTotalQuantity = (): number => {
+    let total = 0;
+    cart.map((item: any) => {
+      total += item.quantity;
+    });
+    return total;
+  };
 
   const params = useParams();
   console.log(params);
@@ -27,7 +49,7 @@ const FoodProduct = () => {
   return (
     <>
       {foodproduct.map((product) => (
-        <div className="product__container">
+        <div className="product">
           <div className="product__links">
             <Link to={Routes.Home}>
               <a className="product__link">Main</a>
@@ -43,19 +65,19 @@ const FoodProduct = () => {
             <p className="product__link">/</p>
             <p className="product__link">{product.name}</p>
           </div>
-          <div className="product__wrap">
-            <div className="product">
-              <div className="product__image">
-                <img
-                  className="product__image-png"
-                  src={product.image}
-                  alt="foto"
-                />
-              </div>
-              <div className="product__content">
-                <h4 className="product__name">{product.name}</h4>
-              </div>
-            </div>
+          <Item
+            slug={product.slug}
+            id={product.id}
+            key={product.id}
+            name={product.name}
+            price={product.price}
+            image={product.image}
+            description={product.description}
+            number_of_drink_glass_sizes={product.number_of_drink_glass_sizes}
+          />
+          <div className="shopping-cart" onClick={() => navigate("/cart")}>
+            <ShoppingCart id="cartIcon" />
+            <p>{getTotalQuantity() || 0}</p>
           </div>
         </div>
       ))}
