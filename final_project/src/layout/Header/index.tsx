@@ -91,11 +91,13 @@ export const Header = () => {
                   </a>
                 </li>
               </Link>
-              <li className="header__menu-list">
-                <a className="header__menu-link" href="#works">
-                  coffee constructor
-                </a>
-              </li>
+              <Link to={Routes.CoffeeBuilder}>
+                <li className="header__menu-list">
+                  <a className="header__menu-link" href="#works">
+                    coffee builder
+                  </a>
+                </li>
+              </Link>
               <Link to={Routes.Information}>
                 <li className="header__menu-list">
                   <a className="header__menu-link" href="#team">
@@ -139,10 +141,9 @@ export const Header = () => {
                 <FontAwesomeIcon
                   className="header__icon-svg"
                   icon={faBasketShopping}
-                /> 
+                />
                 <p className="header__text">{getTotalQuantity() || 0}</p>
               </a>
-             
             </Link>
             <Link to={Routes.Favorites}>
               <a className="header__icon" href="#">

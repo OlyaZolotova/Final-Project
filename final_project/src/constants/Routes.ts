@@ -14,4 +14,5 @@ export enum Routes {
   Favorites = "/favorites",
   Cart = "/cart",
   SearchProduct = "/product/:slug",
+  CoffeeBuilder = "/coffee_builder/",
 }

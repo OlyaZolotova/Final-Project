@@ -13,18 +13,11 @@ export const coffeecategorySlice = createSlice({
   initialState: coffeeCategoryDefaultState,
 
   reducers: {
-    // setCoffeeCategory: (state, action) => {
-    //   state.coffeecategory = action.payload;
-    //   localStorage.setItem(
-    //     "coffeecategory",
-    //     JSON.stringify(action.payload)
-    //   );
-    // },
   },
   extraReducers: (builder) => {
     builder
       .addCase(drinkscategories.fulfilled, (state, action) => {
-        state.coffeecategory = state.coffeecategory.concat(action.payload);
+        state.coffeecategory = action.payload;
         state.loading = false;
       })
       .addCase(drinkscategories.pending, (state) => {

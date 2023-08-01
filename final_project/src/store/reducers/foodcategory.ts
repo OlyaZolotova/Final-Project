@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"; 
+import { createSlice } from "@reduxjs/toolkit";
 import { foodcategories } from "../actions/foodcategory";
 
 const foodCategoryDefaultState = {
@@ -12,18 +12,11 @@ export const foodcategorySlice = createSlice({
   initialState: foodCategoryDefaultState,
 
   reducers: {
-    // setFoodCategory: (state, action) => {
-    //   state.foodcategory = action.payload;
-    //   window.localStorage.setItem(
-    //     "coffeecategory",
-    //     JSON.stringify(action.payload)
-    //   );
-    // },
   },
   extraReducers: (builder) => {
     builder
       .addCase(foodcategories.fulfilled, (state, action) => {
-        state.foodcategory = state.foodcategory.concat(action.payload);
+        state.foodcategory = action.payload;
         state.loading = false;
       })
       .addCase(foodcategories.pending, (state) => {

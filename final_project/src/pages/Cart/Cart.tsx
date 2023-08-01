@@ -4,9 +4,10 @@ import CartItem from './CartItem/CartItem'
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from '../../store'
 import { useEffect } from "react";
-import { setUser } from '../../store/actions/user';
+import { setUser } from '../../store/reducers/user';
 import { authService } from '../../services/auth';
 import { LOCAL_STORAGE_KEYS } from '../../constants/LocalStorageKeys';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 
 function Cart() {
   const { cart } = useSelector((state: RootState) => state.cart);
@@ -14,7 +15,7 @@ function Cart() {
   const { username } = useSelector((state: RootState) => state.user);
 
   
-  const dispath = useDispatch();
+  const dispath = useAppDispatch();
 
   const authUser = async () => {
     const accessToken = localStorage.getItem(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);

@@ -13,27 +13,8 @@ import { Footer } from "./Footer";
 import clsx from "clsx";
 
 export const Root = () => {
-  // const dispath = useDispatch();
-
-  // const authUser = async () => {
-  //   const accessToken = localStorage.getItem(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
-
-  //   if (accessToken) {
-  //     try {
-  //       const { data } = await authService.getCurrentUser();
-
-  //       dispath(setUser(data));
-  //     } catch (error) {}
-  //   }
-  // };
 
   const themeValue = useTheme();
-
-
-  // useEffect(() => {
-  //   authUser();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   return (
       <ThemeProvider value={themeValue}>

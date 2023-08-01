@@ -6,7 +6,7 @@ import { authService } from "../../services/auth";
 import * as Yup from "yup";
 import { LOCAL_STORAGE_KEYS } from "../../constants/LocalStorageKeys";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser } from "../../store/actions/user";
+import { setUser } from "../../store/reducers/user";
 import { useNavigate } from "react-router-dom";
 import { Routes } from "../../constants/Routes";
 import "./style.scss";
@@ -63,6 +63,8 @@ const Login = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+
+  // console.log(id)
 
   return (
     <div className="login">

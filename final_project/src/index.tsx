@@ -20,6 +20,7 @@ import Verify from "./pages/Verify";
 import Favorites from "./pages/Favorites";
 import Cart from "./pages/Cart/Cart";
 import SearchProduct from "./pages/ProductSearch";
+import CoffeeBuilder from "./pages/Constructor/Constructor";
 
 // sass installation: npm install node-sass
 
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    
+
     children: [
       {
         path: Routes.Home,
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: Routes.SearchProduct,
         element: <SearchProduct />,
+      },
+      {
+        path: Routes.CoffeeBuilder,
+        element: <CoffeeBuilder />,
       },
     ],
   },

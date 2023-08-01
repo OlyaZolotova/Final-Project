@@ -14,10 +14,10 @@ import {
 
 interface ICartItem {
   id?: number;
-  name: string;
-  price: number;
-  image: string;
-  quantity: number;
+  name?: string;
+  price?: number;
+  image?: string;
+  quantity?: number;
 }
 
 function CartItem({ id, image, name, price, quantity }: ICartItem) {
